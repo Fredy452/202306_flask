@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playgroud 1</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    h1{
+        text-align: center;
+    }
+    .content{
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: flex-start;
+        max-width: 800px;
+    }
+    .box{
+        width: 150px;
+        height: 150px;
+        /* background-color: skyblue; */
+        border: 1.5px solid black;
+        border-radius: 10px;
+        margin: 10px;
+        box-sizing: border-box;
+    }
+
+</style>
+<body>
+    <h1>Welcome!</h1>
+    <div class="content">
+        {% for _ in range(number) %}
+        <div class="box" style="background-color: {{color}};"></div>
+        {% endfor %}
+    </div>
+</body>
+</html>
