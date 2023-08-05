@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Welcome</h1>
+<div id="container-board">
+    <section id="board">
+        <table>
+            {% for x in range(vertical): %}
+                <tr>
+                    {% for i in range(horizontal): %}
+                        {% if (x+i) % 2 == 0 %}
+                            <td class="color1" style="background-color: {{ color1 }};"></td>
+                        {% else %}
+                            <td class="color2" style="background-color: {{ color2 }};"></td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </section>
+</div>
+
+{% endblock %}
