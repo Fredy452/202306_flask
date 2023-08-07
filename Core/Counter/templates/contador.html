@@ -1,0 +1,31 @@
+<!-- Extendemos de la plantilla base.html -->
+{% extends "index.html" %}
+
+
+<!-- Incertamos los datos en el content -->
+{% block content %}
+<div class="container text-center">
+    <div class="row">
+        <div class="col">
+            <h2>Counter</h2>
+            <p><span class="counter">{{ count }} </span>Counter</p>
+            <form class="d-inline" action="/manual_increment" method="POST">
+                <input type="text" placeholder="Ingrese numero" id="numero" name="numero">
+                <button type="submit"  name="numero" class="btn btn-danger">Enviar</button>
+            </form>
+            <div class="row d-flex">
+                <div class="col">
+                    <form class="d-inline" action="/add_visit" method="POST">
+                        <button type="submit" class="btn btn-danger">+2 visit</button>
+                    </form>
+                    <form class="d-inline" action="/destroy_session" method="POST">
+                        <button type="submit" class="btn btn-success">Reset</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
