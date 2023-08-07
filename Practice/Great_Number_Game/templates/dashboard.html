@@ -1,0 +1,44 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="content py-4">
+  <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+    <div class="container-fluid py-5 text-center">
+      <h1 class="display-5 fw-bold">¡Bienvenido al Gran Juego de los Números!</h1>
+      <div class="d-flex flex-column align-items-center">
+        <p class="col-md-8 fs-4">Estoy pensando en un número entre 1 y 100</p>
+        <p class="col-md-8 fs-4">¡Adivínalo!</p>
+        {% if true %}
+          {% if result == 'Adivinaste' %}
+            <div class="alert alert-success" role="alert">
+              Adivinaste en {{ count }} intentos, buen juego
+              <form action="/reiniciar" method="POST">
+                <button class="btn btn-primary" type="submit">Reiniciar</button>
+              </form>
+            </div>                
+          {% endif %}
+          {% if result == 'Es menor' %}
+            <div class="alert alert-warning" role="alert">
+              El numero que ingresaste es menor, intenta de nuevo
+            </div>                
+          {% endif %}
+          {% if result == 'Es Mayor' %}
+            <div class="alert alert-danger" role="alert">
+              El numero que ingresaste es mayor, intenta de nuevo
+            </div>                
+          {% endif %}
+        {% endif %}
+        <form class="mb-3" action="/calculate" method="POST">
+          <input type="text" class="form-control" name="number">
+          <button class="btn btn-primary btn-lg mt-3" type="submit">Adivinar
+            <span class="badge text-bg-secondary">{{ count }}</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}
